@@ -1,0 +1,23 @@
+<html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&libraries=places&callback=initAutocomplete"
+         async defer></script>
+	<script>
+		
+		document.onload = function(){
+			var geocoder = new google.maps.Geocoder();
+
+		for(var i = 1 ; i <= 201 ; i++){
+			var address = "brgy " + i + " pasay"; 
+			 geocoder.geocode({ 'address': address }, function (results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                console.log(latitude + " " + longitude);
+            }
+        });
+		}
+		};
+		
+	</script>
+</html>
